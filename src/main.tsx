@@ -6,7 +6,10 @@ import { store } from './store'
 import './index.css'
 
 async function init() {
-  if (import.meta.env.DEV) {
+  // Allow enabling the mock service worker in production for demo deployments
+  // by setting the Vite env var `VITE_ENABLE_MSW=true` in the host (e.g. Vercel).
+  const enableMsw = import.meta.env.DEV || import.meta.env.VITE_ENABLE_MSW === 'true'
+  if (enableMsw) {
     const { worker } = await import('./mocks/browser')
     await worker.start({ onUnhandledRequest: 'bypass' })
   }
