@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  @apply bg-gray-50 text-gray-900 antialiased;
+}
+
+/* Dark mode styles */
+.dark body {
+  @apply bg-gray-900 text-gray-100;
+}
+
+.app-container {
+  @apply min-h-screen;
+}
+
+.card {
+  @apply bg-white dark:bg-gray-800 rounded shadow p-4;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center px-3 py-1 rounded border text-sm;
+}
+
+/* Smooth theme transitions */
+html, body, .card, .btn, header, main {
+  transition: background-color 220ms ease, color 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+/* Hover and subtle elevation for cards */
+.card {
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(2,6,23,0.2);
+}
+
+/* Status badges */
+.badge {
+  @apply inline-flex items-center gap-2 text-xs font-medium px-2 py-0.5 rounded-full;
+}
+.badge-todo { @apply bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-100 }
+.badge-progress { @apply bg-yellow-200 text-yellow-800 dark:bg-yellow-600 dark:text-yellow-900 }
+.badge-done { @apply bg-green-200 text-green-800 dark:bg-green-600 dark:text-green-900 }
+
+/* Background gradient for a modern look */
+body {
+  background-image: linear-gradient(180deg, rgba(99,102,241,0.04) 0%, rgba(99,102,241,0.02) 50%, rgba(99,102,241,0.00) 100%);
+}
+
+/* Login background variant */
+.login-bg {
+  background: linear-gradient(135deg, rgba(59,130,246,0.04), rgba(124,58,237,0.04));
+}
+
+/* Form input focus styles */
+input, textarea, select {
+  transition: box-shadow 150ms ease, border-color 150ms ease, transform 150ms ease;
+}
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  box-shadow: 0 6px 18px rgba(59,130,246,0.12);
+  border-color: rgba(59,130,246,0.8);
+  transform: translateY(-1px);
+}
+
+/* CTA primary */
+.btn-primary {
+  @apply bg-blue-600 text-white rounded-full px-6 py-2 shadow-md hover:shadow-lg transform transition ease-in-out duration-150;
+}
+.btn-primary:hover { transform: translateY(-2px) }
+
+/* Subtle blurred card background */
+.card-blur {
+  background-color: rgba(255,255,255,0.6);
+  backdrop-filter: blur(6px);
+}
+.dark .card-blur {
+  background-color: rgba(17,24,39,0.6);
+}
+
+/* Footer small text */
+.footer-small { @apply text-center text-xs text-gray-500 dark:text-gray-400 mt-4 }
+
+
+
